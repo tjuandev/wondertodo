@@ -1,6 +1,5 @@
 export default function Home() {
-  return (
-    <div>
-    </div>
-  )
+  const bob = 90
+
+  return <div>{bob}</div>
 }
