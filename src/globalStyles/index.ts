@@ -9,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${theme.colors.background};
-    color: ${theme.colors.textLight};
+    background: ${theme.colors.dark};
+    color: ${theme.colors.white};
   }
 
   body,
