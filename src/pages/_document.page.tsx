@@ -1,13 +1,4 @@
-import { Fragment } from 'react'
-import Document, {
-  DocumentContext,
-  Head,
-  Html,
-  Main,
-  NextScript
-} from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
-
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 export default class MyDocument extends Document {
   render() {
     return (
@@ -16,25 +7,25 @@ export default class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta
             name="description"
-            content="This project is a Next.js boilerplate"
+            content="Este aqui é o WonderTodo, seu melhor gerenciador de tarefas."
           />
-          <meta name="keywords" content="boilerplate, next.js, react" />
-          <meta name="copyright" content="© Éverton Toffanetto" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <meta
+            name="keywords"
+            content="todo, tasks, tarefa, realtime, colaborativo"
+          />
+          <meta name="copyright" content="© Thiago Juan" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
-            as="style"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
           />
           <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
           />
           <link rel="apple-touch-icon" href="/favicon.png" />
           <link rel="icon" href="/favicon.png" />
-          {/* pwa */}
-          <meta name="theme-color" content="#fff" />
-          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />
@@ -42,30 +33,5 @@ export default class MyDocument extends Document {
         </body>
       </Html>
     )
-  }
-
-  static async getInitialProps(ctx: DocumentContext) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
-
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
-        })
-
-      const initialProps = await Document.getInitialProps(ctx)
-      return {
-        ...initialProps,
-        styles: [
-          <Fragment key={1}>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </Fragment>
-        ]
-      }
-    } finally {
-      sheet.seal()
-    }
   }
 }

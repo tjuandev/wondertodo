@@ -10,6 +10,14 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${theme.colors.background};
+    color: ${theme.colors.textLight};
+  }
+
+  body,
+  input,
+  button,
+  text-area {
+    font-family: 'Poppins', sans-serif;
   }
 
   a {
