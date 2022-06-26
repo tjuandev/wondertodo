@@ -21,5 +21,8 @@ export const theme: Theme = {
   gradient: {
     primary:
       'background: linear-gradient(294.88deg, #FB7BA2 -1.4%, #FCE043 94.3%)'
+  },
+  radii: {
+    base: '0.9375rem'
   }
 }
