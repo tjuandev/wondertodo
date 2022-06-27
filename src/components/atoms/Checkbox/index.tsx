@@ -1,11 +1,7 @@
 import Checked from 'assets/icons/Checked'
 import { Button } from './Stylesheet'
 
-type CheckboxProps = {
-  checked: boolean
-  color: string
-  onClick: () => void
-}
+import { CheckboxProps } from './types'
 
 const Checkbox = (props: CheckboxProps) => {
   const { color } = props

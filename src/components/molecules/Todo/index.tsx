@@ -5,13 +5,7 @@ import { Checkbox } from 'components/atoms'
 import { useState } from 'react'
 import { theme } from 'globalStyles/theme'
 
-type TodoProps = {
-  text: string
-  checked: boolean
-  color: string
-  emoji: string
-  id: number
-}
+import { TodoProps } from './types'
 
 export default function Todo({
   text,
