@@ -8,7 +8,7 @@ type ButtonsProps = {
 export const Button = styled.button<ButtonsProps>`
   width: 28px;
   height: 28px;
-  border: 2px solid #8e8e8e;
+  box-shadow: 0 0 0 2px ${({ color }) => color} inset, 0 0 1px 0 white;
   border-radius: 50%;
 
   cursor: pointer;
