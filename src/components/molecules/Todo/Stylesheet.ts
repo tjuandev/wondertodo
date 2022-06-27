@@ -10,8 +10,6 @@ export const Wrapper = styled.li`
   border-radius: ${theme.radii.base};
   border-bottom: 5px solid ${props => props.color};
 
-  max-width: 900px;
-
   &,
   div {
     display: flex;
