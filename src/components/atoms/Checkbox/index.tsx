@@ -8,9 +8,11 @@ type CheckboxProps = {
 }
 
 const Checkbox = (props: CheckboxProps) => {
+  const { color } = props
+
   return (
     <Button {...props}>
-      <Checked />
+      <Checked color={color} />
     </Button>
   )
 }
