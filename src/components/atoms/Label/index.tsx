@@ -2,6 +2,8 @@ import { LabelWrapper } from './Stylesheet'
 
 type LabelProps = { text: string }
 
-export const Label = ({ text }: LabelProps) => {
+const Label = ({ text }: LabelProps) => {
   return <LabelWrapper>{text}</LabelWrapper>
 }
+
+export default Label
