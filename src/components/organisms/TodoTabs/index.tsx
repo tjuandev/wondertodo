@@ -5,7 +5,7 @@ import { Todo } from 'components/molecules'
 
 import { ListWrapper } from './Stylesheet'
 
-export const TodoList = () => {
+const TodoTabs = () => {
   const mockedTodos: Todos = [
     {
       text: 'Todo 1',
@@ -38,3 +38,5 @@ export const TodoList = () => {
     </ListWrapper>
   )
 }
+
+export default TodoTabs
