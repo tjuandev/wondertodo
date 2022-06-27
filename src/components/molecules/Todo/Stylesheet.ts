@@ -20,6 +20,10 @@ export const Wrapper = styled.li`
   justify-content: space-between;
 
   padding: 10px 0.5rem;
+
+  svg:first-child {
+    cursor: grab;
+  }
 `
 
 export const StartBoxWrapper = styled.div``
