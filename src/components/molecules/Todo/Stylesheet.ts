@@ -21,7 +21,7 @@ export const Wrapper = styled.li`
 
   padding: 10px 0.5rem;
 
-  svg:first-child {
+  div > svg:first-child {
     cursor: grab;
   }
 `
