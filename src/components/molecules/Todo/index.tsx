@@ -20,7 +20,7 @@ export default function Todo({
   }
 
   return (
-    <Wrapper>
+    <Wrapper color={color}>
       <StartBoxWrapper>
         <DragDots />
         <Checkbox checked={isTodoDone} color={color} onClick={toggleTodoDone} />

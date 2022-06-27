@@ -8,7 +8,7 @@ export const Wrapper = styled.li`
   background: ${theme.colors.white};
 
   border-radius: ${theme.radii.base};
-  border-bottom: 5px solid #0094ff;
+  border-bottom: 5px solid ${props => props.color};
 
   max-width: 900px;
 
