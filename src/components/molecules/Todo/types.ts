@@ -3,5 +3,4 @@ export type TodoProps = {
   checked: boolean
   color: string
   emoji: string
-  id: number
 }
