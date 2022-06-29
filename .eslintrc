@@ -55,6 +55,7 @@
       { "extensions": [".ts", ".tsx"] }
     ],
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "off",
     "no-magic-numbers": "warn",
     "@next/next/no-img-element": "off",
     "jsx-a11y/anchor-is-valid": "off",
