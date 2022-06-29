@@ -10,6 +10,9 @@ type Theme = {
   radii: {
     base: string
   }
+  outline: {
+    base: string
+  }
 }
 
 export const theme: Theme = {
@@ -24,5 +27,6 @@ export const theme: Theme = {
   },
   radii: {
     base: '0.9375rem'
-  }
+  },
+  outline: { base: `2px solid #FCB243` }
 }
