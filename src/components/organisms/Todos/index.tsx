@@ -3,7 +3,8 @@ import { nanoid } from '@reduxjs/toolkit'
 import { Todos } from './types'
 import { InputToggle, Todo } from 'components/molecules'
 
-import { Container, ListWrapper } from './Stylesheet'
+import { Container, ListWrapper, TabsContainer } from './Stylesheet'
+import { SimpleTab } from 'components/atoms'
 
 const TodoTabs = () => {
   const mockedTodos: Todos = [
@@ -34,6 +35,10 @@ const TodoTabs = () => {
 
   return (
     <Container>
+      <TabsContainer>
+        <SimpleTab name="Pendentes" active />
+        <SimpleTab name="Concluídas" />
+      </TabsContainer>
       <ListWrapper>
         {mockedTodos.map(({ id, ...todoProps }) => {
           return <Todo key={id} {...todoProps} />
