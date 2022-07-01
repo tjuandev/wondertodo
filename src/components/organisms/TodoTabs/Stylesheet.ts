@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const Container = styled.section`
+  max-width: 900px;
+`
+
 export const ListWrapper = styled.ul`
   li {
     list-style: none;
@@ -8,6 +12,4 @@ export const ListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
-  max-width: 900px;
 `
