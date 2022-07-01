@@ -5,7 +5,6 @@ import { InputProps } from './types'
 export const Wrapper = styled.div`
   > div,
   input {
-    margin-top: 4rem;
     width: 100%;
     padding: 0 0.5rem;
   }
