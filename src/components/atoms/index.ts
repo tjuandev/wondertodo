@@ -1,2 +1,2 @@
 export { default as Checkbox } from './Checkbox'
-export { default as KeyLabel } from './KeyLabel'
+export { default as KeyUpLabel } from './KeyUpLabel'
