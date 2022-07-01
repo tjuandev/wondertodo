@@ -1,9 +1,9 @@
 import { nanoid } from '@reduxjs/toolkit'
 
 import { Todos } from './types'
-import { Todo } from 'components/molecules'
+import { InputToggle, Todo } from 'components/molecules'
 
-import { ListWrapper } from './Stylesheet'
+import { Container, ListWrapper } from './Stylesheet'
 
 const TodoTabs = () => {
   const mockedTodos: Todos = [
@@ -30,12 +30,21 @@ const TodoTabs = () => {
     }
   ]
 
+  const keyUps = ['ctrl', '+']
+
   return (
-    <ListWrapper>
-      {mockedTodos.map(({ id, ...todoProps }) => {
-        return <Todo key={id} {...todoProps} />
-      })}
-    </ListWrapper>
+    <Container>
+      <ListWrapper>
+        {mockedTodos.map(({ id, ...todoProps }) => {
+          return <Todo key={id} {...todoProps} />
+        })}
+      </ListWrapper>
+      <InputToggle
+        text="+ Create new todo"
+        keyUps={keyUps}
+        inputProps={{ placeholder: 'Digite o nome do seu todo aqui' }}
+      />
+    </Container>
   )
 }
 

@@ -1,1 +1,1 @@
-export { default as TodoTabs } from './TodoTabs'
+export { default as Todos } from './Todos'

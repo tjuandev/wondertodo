@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+export const TabsContainer = styled.header``
+
 export const Container = styled.section`
   max-width: 900px;
 `

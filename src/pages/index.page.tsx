@@ -1,5 +1,5 @@
-export default function Home() {
-  const bob = 90
+import { Todos } from 'components/organisms'
 
-  return <div>{bob}</div>
+export default function Home() {
+  return <Todos />
 }
