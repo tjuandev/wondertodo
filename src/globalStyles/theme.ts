@@ -1,24 +1,32 @@
 type Theme = {
   colors: {
-    background: string
-    textLight: string
-    textDark: string
+    dark: string
+    white: string
     yellow: string
   }
   gradient: {
     primary: string
   }
+  radii: {
+    base: string
+  }
+  outline: {
+    base: string
+  }
 }
 
 export const theme: Theme = {
   colors: {
-    background: '#272727',
-    textLight: '#f4f4f4',
-    textDark: '#272727',
+    dark: '#272727',
+    white: '#f4f4f4',
     yellow: '#FCB243'
   },
   gradient: {
     primary:
       'background: linear-gradient(294.88deg, #FB7BA2 -1.4%, #FCE043 94.3%)'
-  }
+  },
+  radii: {
+    base: '0.9375rem'
+  },
+  outline: { base: `2px solid #FCB243` }
 }
