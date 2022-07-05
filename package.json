@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
@@ -39,7 +40,7 @@
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-storybook": "^0.5.12",
     "eslint-plugin-testing-library": "^5.5.0",
-    "husky": "^8.0.1",
+    "husky": "^8.0.0",
     "prettier": "^2.7.1"
   }
 }
