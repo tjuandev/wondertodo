@@ -14,7 +14,7 @@ export const Input = styled.input<InputProps>`
   padding: 10px 0.5rem;
   font-size: 1.25rem;
 
-  height: 50px;
+  height: 64px;
 
   border: none;
   border-radius: ${theme.radii.base};
