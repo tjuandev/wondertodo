@@ -22,6 +22,7 @@ export const Input = styled.input<InputProps>`
 
   ::placeholder {
     color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
   }
 
   :focus {
