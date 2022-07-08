@@ -10,9 +10,14 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Input = styled.input<InputProps>`
+export const InputContainer = styled.div`
+  display: flex;
+
+  justify-content: space-between;
   padding: 10px 0.5rem;
   font-size: 1.25rem;
+
+  background: ${theme.colors.white};
 
   height: 64px;
 
@@ -20,13 +25,24 @@ export const Input = styled.input<InputProps>`
   border-radius: ${theme.radii.base};
   border-bottom: 5px solid ${props => props?.color || theme.colors.yellow};
 
+  :focus-within {
+    outline: ${theme.outline.base};
+  }
+`
+
+export const Input = styled.input<InputProps>`
+  background: transparent;
+  border: none;
+
+  height: 100%;
+
   ::placeholder {
     color: rgba(0, 0, 0, 0.5);
     font-size: 20px;
   }
 
   :focus {
-    outline: ${theme.outline.base};
+    outline: none;
   }
 `
 
