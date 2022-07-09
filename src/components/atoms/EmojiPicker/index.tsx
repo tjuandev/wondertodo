@@ -2,7 +2,7 @@ import Smiley from 'assets/icons/Smiley'
 
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import { EmojiButton } from './Stylesheet'
+import { Container, EmojiButton, EmojiPickerWrapper } from './Stylesheet'
 import { EmojiState, EmojiPickerProps } from './types'
 
 const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
@@ -14,19 +14,22 @@ export default function View({ onEmojiClick }: EmojiPickerProps) {
   const [emoji, setEmoji] = useState<EmojiState>(null)
 
   return (
-    <>
+    <Container>
       <EmojiButton onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
         {emoji ?? <Smiley />}
       </EmojiButton>
 
       {showEmojiPicker && (
-        <EmojiPicker
-          onEmojiClick={(_, data) => {
-            setEmoji(data.emoji)
-            onEmojiClick(data)
-          }}
-        />
+        <EmojiPickerWrapper>
+          <EmojiPicker
+            disableSkinTonePicker
+            onEmojiClick={(_, data) => {
+              setEmoji(data.emoji)
+              onEmojiClick(data)
+            }}
+          />
+        </EmojiPickerWrapper>
       )}
-    </>
+    </Container>
   )
 }
