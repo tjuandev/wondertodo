@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { Container, EmojiButton, EmojiPickerWrapper } from './Stylesheet'
 import { EmojiState, EmojiPickerProps } from './types'
 
+import { useClickOutside } from 'hooks'
+
 const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false
 })
@@ -13,8 +15,12 @@ export default function View({ onEmojiClick }: EmojiPickerProps) {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false)
   const [emoji, setEmoji] = useState<EmojiState>(null)
 
+  const ref = useClickOutside({
+    onClick: () => setShowEmojiPicker(false)
+  })
+
   return (
-    <Container>
+    <Container ref={ref}>
       <EmojiButton onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
         {emoji ?? <Smiley />}
       </EmojiButton>
