@@ -13,6 +13,9 @@ type Theme = {
   outline: {
     base: string
   }
+  transitions: {
+    base: string
+  }
 }
 
 export const theme: Theme = {
@@ -28,5 +31,8 @@ export const theme: Theme = {
   radii: {
     base: '0.9375rem'
   },
-  outline: { base: `2px solid #FCB243` }
+  outline: { base: `2px solid #FCB243` },
+  transitions: {
+    base: 'all 0.25s ease-in-out'
+  }
 }
