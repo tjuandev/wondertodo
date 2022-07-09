@@ -10,10 +10,16 @@ export const Wrapper = styled.div`
   }
 `
 
+export const EndElementsContainer = styled.div`
+  display: flex;
+  gap: 8px;
+`
+
 export const InputContainer = styled.div`
   display: flex;
-
   justify-content: space-between;
+  align-items: center;
+
   padding: 10px 0.5rem;
   font-size: 1.25rem;
 
@@ -57,7 +63,7 @@ export const CreateButtonWrapper = styled.div`
     font-size: 1.25rem;
     color: ${theme.colors.white};
 
-    transition: color 0.25s ease-in-out;
+    transition: ${theme.transitions.base};
 
     :hover {
       color: rgba(255, 255, 255, 0.25);

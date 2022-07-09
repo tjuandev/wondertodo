@@ -2,7 +2,13 @@ import { useState } from 'react'
 
 import { KeyUpLabel } from 'components/atoms'
 
-import { CreateButtonWrapper, Input, Wrapper } from './Stylesheet'
+import {
+  CreateButtonWrapper,
+  EndElementsContainer,
+  Input,
+  InputContainer,
+  Wrapper
+} from './Stylesheet'
 import { InputToggleProps, KeyUpLabelsProps } from './types'
 
 const KeyUpLabels = ({ keyUps }: KeyUpLabelsProps) => (
@@ -17,7 +23,12 @@ const KeyUpLabels = ({ keyUps }: KeyUpLabelsProps) => (
   </>
 )
 
-const InputToggle = ({ text, keyUps, inputProps }: InputToggleProps) => {
+const InputToggle = ({
+  text,
+  keyUps,
+  inputProps,
+  EndInputElements
+}: InputToggleProps) => {
   const [inputMode, setInputMode] = useState(false)
 
   const toggleInputMode = () => {
@@ -27,7 +38,10 @@ const InputToggle = ({ text, keyUps, inputProps }: InputToggleProps) => {
   return (
     <Wrapper>
       {inputMode ? (
-        <Input {...inputProps} />
+        <InputContainer>
+          <Input {...inputProps} />
+          <EndElementsContainer>{EndInputElements}</EndElementsContainer>
+        </InputContainer>
       ) : (
         <CreateButtonWrapper>
           <button onClick={toggleInputMode}>
