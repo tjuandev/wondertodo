@@ -21,7 +21,6 @@ export const InputContainer = styled.form`
   align-items: center;
 
   padding: 10px 0.5rem;
-  font-size: 1.25rem;
 
   background: ${theme.colors.white};
 
@@ -41,6 +40,8 @@ export const Input = styled.input<InputProps>`
   border: none;
 
   height: 100%;
+
+  font-size: 1.25rem;
 
   ::placeholder {
     color: rgba(0, 0, 0, 0.5);
