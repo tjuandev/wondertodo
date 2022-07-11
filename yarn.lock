@@ -831,6 +831,11 @@ dom-accessibility-api@^0.5.9:
   resolved "https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.14.tgz"
   integrity sha512-NMt+m9zFMPZe0JcY9gN224Qvk6qLIdqex29clBvc/y75ZBX9YA9wNK3frsYvu2DI1xcCIwxwnX+TlsJ2DSOADg==
 
+emoji-picker-react@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/emoji-picker-react/-/emoji-picker-react-3.5.1.tgz#dbb4cda675a58dc86624d2fc488f75c2f4fc377d"
+  integrity sha512-cuSthFAvUO8Q1N7KJPEgZ7N0JNIWPKgN5GUmKe71UlSD4qFYI/p05RT9nohlWOq6YSFhEy2mI/60zBZiaku4mg==
+
 emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz"
@@ -1430,7 +1435,7 @@ hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0, hoist-non-react-
   dependencies:
     react-is "^16.7.0"
 
-husky@^8.0.1:
+husky@^8.0.0:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.1.tgz#511cb3e57de3e3190514ae49ed50f6bc3f50b3e9"
   integrity sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==

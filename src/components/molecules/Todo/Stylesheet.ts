@@ -29,4 +29,6 @@ export const Wrapper = styled.li`
 `
 
 export const StartBoxWrapper = styled.div``
-export const EndBoxWrapper = styled.div``
+export const EndBoxWrapper = styled.div`
+  font-size: 1.5rem;
+`

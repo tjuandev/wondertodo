@@ -10,9 +10,19 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Input = styled.input<InputProps>`
+export const EndElementsContainer = styled.div`
+  display: flex;
+  gap: 8px;
+`
+
+export const InputContainer = styled.form`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   padding: 10px 0.5rem;
-  font-size: 1.25rem;
+
+  background: ${theme.colors.white};
 
   height: 64px;
 
@@ -20,12 +30,26 @@ export const Input = styled.input<InputProps>`
   border-radius: ${theme.radii.base};
   border-bottom: 5px solid ${props => props?.color || theme.colors.yellow};
 
+  :focus-within {
+    outline: ${theme.outline.base};
+  }
+`
+
+export const Input = styled.input<InputProps>`
+  background: transparent;
+  border: none;
+
+  height: 100%;
+
+  font-size: 1.25rem;
+
   ::placeholder {
     color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
   }
 
   :focus {
-    outline: ${theme.outline.base};
+    outline: none;
   }
 `
 
@@ -40,7 +64,7 @@ export const CreateButtonWrapper = styled.div`
     font-size: 1.25rem;
     color: ${theme.colors.white};
 
-    transition: color 0.25s ease-in-out;
+    transition: ${theme.transitions.base};
 
     :hover {
       color: rgba(255, 255, 255, 0.25);

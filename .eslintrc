@@ -27,10 +27,8 @@
     "plugin:jsx-a11y/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "plugin:@next/next/recommended",
     "prettier",
     "plugin:prettier/recommended",
-    "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -57,7 +55,6 @@
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "off",
     "no-magic-numbers": "warn",
-    "@next/next/no-img-element": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
