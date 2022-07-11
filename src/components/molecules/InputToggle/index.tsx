@@ -27,7 +27,8 @@ const InputToggle = ({
   text,
   keyUps,
   inputProps,
-  EndInputElements
+  EndInputElements,
+  onSubmit
 }: InputToggleProps) => {
   const [inputMode, setInputMode] = useState(false)
 
@@ -41,6 +42,7 @@ const InputToggle = ({
         <InputContainer
           onSubmit={e => {
             e.preventDefault()
+            onSubmit(e)
             setInputMode(false)
           }}
         >

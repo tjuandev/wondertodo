@@ -5,7 +5,7 @@ import { InputToggle, Todo } from 'components/molecules'
 
 import { Container, ListWrapper, TabsContainer } from './Stylesheet'
 import { SimpleTab, EmojiPicker } from 'components/atoms'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 const TodoTabs = () => {
   const mockedTodos: Todos = [
@@ -32,9 +32,23 @@ const TodoTabs = () => {
     }
   ]
 
+  const [todos, setTodos] = useState(mockedTodos)
   const [emoji, setEmoji] = useState('')
 
-  console.log('emoji', emoji)
+  const createTodo = (e: FormEvent) => {
+    const target = e.target as HTMLFormElement
+
+    setTodos(prevState => [
+      ...prevState,
+      {
+        text: target.todo.value,
+        checked: false,
+        color: '#0094FF',
+        emoji: emoji,
+        id: nanoid()
+      }
+    ])
+  }
 
   return (
     <Container>
@@ -43,13 +57,17 @@ const TodoTabs = () => {
         <SimpleTab name="Concluídas" />
       </TabsContainer>
       <ListWrapper>
-        {mockedTodos.map(({ id, ...todoProps }) => {
+        {todos.map(({ id, ...todoProps }) => {
           return <Todo key={id} {...todoProps} />
         })}
       </ListWrapper>
       <InputToggle
+        onSubmit={createTodo}
         text="+ Create new todo"
-        inputProps={{ placeholder: 'Digite o nome do seu todo aqui' }}
+        inputProps={{
+          placeholder: 'Digite o nome do seu todo aqui',
+          name: 'todo'
+        }}
         EndInputElements={
           <EmojiPicker onEmojiClick={({ emoji }) => setEmoji(emoji)} />
         }

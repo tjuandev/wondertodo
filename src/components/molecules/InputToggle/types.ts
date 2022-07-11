@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { FormEvent, ReactElement } from 'react'
 
 export type InputToggleProps = {
   text: string
@@ -7,6 +7,7 @@ export type InputToggleProps = {
     color?: string
   }
   EndInputElements?: ReactElement | ReactElement[]
+  onSubmit: (e: FormEvent) => void
 }
 
 export type InputProps = {
