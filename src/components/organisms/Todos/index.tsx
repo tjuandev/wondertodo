@@ -46,7 +46,6 @@ const TodoTabs = () => {
       </ListWrapper>
       <InputToggle
         text="+ Create new todo"
-        keyUps={keyUps}
         inputProps={{ placeholder: 'Digite o nome do seu todo aqui' }}
       />
     </Container>
