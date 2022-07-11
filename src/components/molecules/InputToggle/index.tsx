@@ -38,7 +38,12 @@ const InputToggle = ({
   return (
     <Wrapper>
       {inputMode ? (
-        <InputContainer>
+        <InputContainer
+          onSubmit={e => {
+            e.preventDefault()
+            setInputMode(false)
+          }}
+        >
           <Input {...inputProps} />
           <EndElementsContainer>{EndInputElements}</EndElementsContainer>
         </InputContainer>

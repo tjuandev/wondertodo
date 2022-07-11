@@ -15,7 +15,7 @@ export const EndElementsContainer = styled.div`
   gap: 8px;
 `
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -21,7 +21,10 @@ export default function View({ onEmojiClick }: EmojiPickerProps) {
 
   return (
     <Container ref={ref}>
-      <EmojiButton onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
+      <EmojiButton
+        type="button"
+        onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+      >
         {emoji ?? <Smiley />}
       </EmojiButton>
 
