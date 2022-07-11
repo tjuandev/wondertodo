@@ -38,4 +38,9 @@ export const EmojiPickerWrapper = styled.div`
 
     transform: translate(-95%, -115%);
   }
+
+  button img.emoji-img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `
