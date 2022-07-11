@@ -4,7 +4,8 @@ import { Todos } from './types'
 import { InputToggle, Todo } from 'components/molecules'
 
 import { Container, ListWrapper, TabsContainer } from './Stylesheet'
-import { SimpleTab } from 'components/atoms'
+import { SimpleTab, EmojiPicker } from 'components/atoms'
+import { useState } from 'react'
 
 const TodoTabs = () => {
   const mockedTodos: Todos = [
@@ -31,7 +32,9 @@ const TodoTabs = () => {
     }
   ]
 
-  const keyUps = ['ctrl', '+']
+  const [emoji, setEmoji] = useState('')
+
+  console.log('emoji', emoji)
 
   return (
     <Container>
@@ -47,6 +50,9 @@ const TodoTabs = () => {
       <InputToggle
         text="+ Create new todo"
         inputProps={{ placeholder: 'Digite o nome do seu todo aqui' }}
+        EndInputElements={
+          <EmojiPicker onEmojiClick={({ emoji }) => setEmoji(emoji)} />
+        }
       />
     </Container>
   )
