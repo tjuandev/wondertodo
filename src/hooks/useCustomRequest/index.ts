@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { UseCustomRequestReturn, CustomRequest } from './types'
+import { UseCustomRequestReturn, CustomRequest, ObjectType } from './types'
 
 export default function useFetch(
   customRequest: CustomRequest
@@ -8,19 +8,22 @@ export default function useFetch(
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const fetch = useCallback(async () => {
-    setLoading(true)
+  const fetch = useCallback(
+    async (params: ObjectType) => {
+      setLoading(true)
 
-    try {
-      const data = await customRequest()
+      try {
+        const data = await customRequest(params)
 
-      setData(data)
-    } catch (error: any) {
-      setError(error.message)
-    }
+        setData(data)
+      } catch (error: any) {
+        setError(error.message)
+      }
 
-    setLoading(false)
-  }, [customRequest])
+      setLoading(false)
+    },
+    [customRequest]
+  )
 
   return {
     data,
