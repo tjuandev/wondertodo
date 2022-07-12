@@ -22,6 +22,8 @@ const TodoTabs = () => {
       emoji: emoji,
       id: nanoid()
     })
+
+    setEmoji('')
   }
 
   return (
