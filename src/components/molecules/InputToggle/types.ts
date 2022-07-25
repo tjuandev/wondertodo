@@ -1,18 +1,15 @@
-import { FormEvent, ReactElement } from 'react'
+import { FormEvent, InputHTMLAttributes, ReactElement } from 'react'
+
+export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  color?: string
+}
 
 export type InputToggleProps = {
   text: string
   keyUps?: string[]
-  inputProps?: Partial<HTMLInputElement> & {
-    color?: string
-  }
+  inputProps?: InputProps
   EndInputElements?: ReactElement | ReactElement[]
   onSubmit: (e: FormEvent) => void
-}
-
-export type InputProps = {
-  color?: string
-  [x: string]: any
 }
 
 export type KeyUpLabelsProps = Pick<InputToggleProps, 'keyUps'>
