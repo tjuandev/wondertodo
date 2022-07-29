@@ -10,7 +10,7 @@ export function useTodo() {
   }
 
   const setState = {
-    setTodos: () => dispatch(fetchAllTodos()),
+    setInitialTodos: () => dispatch(fetchAllTodos()),
     setAddTodos: (payload: Todo) => dispatch(addTodo(payload))
   }
 

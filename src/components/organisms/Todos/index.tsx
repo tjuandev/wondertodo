@@ -9,7 +9,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { useTodo } from 'store/todo'
 
 const TodoTabs = () => {
-  const { todo, setAddTodos, setTodos } = useTodo()
+  const { todo, setAddTodos, setInitialTodos } = useTodo()
   const [emoji, setEmoji] = useState('')
 
   const createTodo = (e: FormEvent) => {
@@ -28,9 +28,9 @@ const TodoTabs = () => {
 
   useEffect(() => {
     if (todo.status === 'idle') {
-      setTodos()
+      setInitialTodos()
     }
-  }, [setTodos, todo])
+  }, [setInitialTodos, todo])
 
   return (
     <Container>
