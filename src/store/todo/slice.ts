@@ -1,39 +1,59 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit'
-import { TodoInitialState } from './types'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { Todo, TodoInitialState } from './types'
+
+import { useDatabase } from 'hooks'
+
+export const fetchAllTodos = createAsyncThunk(
+  'todo/fetchAllTodos',
+  async (_, { rejectWithValue }) => {
+    const { read } = useDatabase()
+
+    const { data: response, error } = await read('todos')
+
+    if (error) {
+      throw rejectWithValue(error)
+    }
+
+    return { response }
+  }
+)
+
+export const createTodo = createAsyncThunk(
+  'todo/createTodo',
+  async ({ data }: { data: Todo[] }) => {
+    const { create } = useDatabase()
+
+    const { data: response, error } = await create('todos', data)
+
+    return { response, error }
+  }
+)
 
 const initialState: TodoInitialState = {
-  todos: [
-    {
-      text: 'Todo 1',
-      checked: false,
-      color: '#0094FF',
-      emoji: '🪥',
-      id: nanoid()
-    },
-    {
-      text: 'Todo 2',
-      checked: false,
-      color: '#FF5C00',
-      emoji: '🎉',
-      id: nanoid()
-    },
-    {
-      text: 'Todo 3',
-      checked: false,
-      color: '#FF1B6D',
-      emoji: '🎁',
-      id: nanoid()
-    }
-  ]
+  data: [],
+  error: '',
+  status: 'idle'
 }
 
 const slice = createSlice({
-  name: 'todo',
+  name: 'todos',
   initialState,
   reducers: {
     addTodo: (state, action) => {
-      state.todos.push(action.payload)
+      state.data.push(action.payload)
     }
+  },
+  extraReducers(builder) {
+    builder.addCase(fetchAllTodos.fulfilled, (state, { payload }) => {
+      state.data = payload?.response || []
+      state.status = 'success'
+    })
+    builder.addCase(fetchAllTodos.pending, state => {
+      state.status = 'pending'
+    })
+    builder.addCase(fetchAllTodos.rejected, state => {
+      state.status = 'reject'
+    })
   }
 })
 

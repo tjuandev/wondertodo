@@ -7,5 +7,7 @@ export type Todo = {
 }
 
 export type TodoInitialState = {
-  todos: Todo[]
+  data: Todo[]
+  error: string
+  status: string
 }

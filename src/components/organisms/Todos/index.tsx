@@ -4,12 +4,12 @@ import { InputToggle, Todo } from 'components/molecules'
 
 import { Container, ListWrapper, TabsContainer } from './Stylesheet'
 import { SimpleTab, EmojiPicker } from 'components/atoms'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 
 import { useTodo } from 'store/todo'
 
 const TodoTabs = () => {
-  const { todo, setAddTodos } = useTodo()
+  const { todo, setAddTodos, setTodos } = useTodo()
   const [emoji, setEmoji] = useState('')
 
   const createTodo = (e: FormEvent) => {
@@ -26,6 +26,12 @@ const TodoTabs = () => {
     setEmoji('')
   }
 
+  useEffect(() => {
+    if (todo.status === 'idle') {
+      setTodos()
+    }
+  }, [setTodos, todo])
+
   return (
     <Container>
       <TabsContainer>
@@ -33,9 +39,13 @@ const TodoTabs = () => {
         <SimpleTab name="Concluídas" />
       </TabsContainer>
       <ListWrapper>
-        {todo.todos.map(({ id, ...todoProps }) => {
-          return <Todo key={id} {...todoProps} />
-        })}
+        {todo.status === 'pending' ? (
+          <>loading</>
+        ) : (
+          todo.data.map(({ id, ...todoProps }) => {
+            return <Todo key={id} {...todoProps} />
+          })
+        )}
       </ListWrapper>
       <InputToggle
         onSubmit={createTodo}
