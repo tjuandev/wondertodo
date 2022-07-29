@@ -8,7 +8,7 @@ export const fetchAllTodos = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     const { read } = useDatabase()
 
-    const { data: response, error } = await read('todos')
+    const { data: response, error } = await read<Todo>('todos')
 
     if (error) {
       throw rejectWithValue(error)
@@ -20,12 +20,16 @@ export const fetchAllTodos = createAsyncThunk(
 
 export const createTodo = createAsyncThunk(
   'todo/createTodo',
-  async ({ data }: { data: Todo[] }) => {
+  async (data: Todo, { rejectWithValue }) => {
     const { create } = useDatabase()
 
-    const { data: response, error } = await create('todos', data)
+    const { data: response, error } = await create<Todo>('todos', data)
 
-    return { response, error }
+    if (error) {
+      throw rejectWithValue(error)
+    }
+
+    return { response }
   }
 )
 
@@ -45,7 +49,7 @@ const slice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(fetchAllTodos.fulfilled, (state, { payload }) => {
-      state.data = payload?.response || []
+      state.data = payload.response
       state.status = 'success'
     })
     builder.addCase(fetchAllTodos.pending, state => {
@@ -53,6 +57,13 @@ const slice = createSlice({
     })
     builder.addCase(fetchAllTodos.rejected, state => {
       state.status = 'reject'
+    })
+    builder.addCase(createTodo.fulfilled, (state, action) => {
+      state.data.push(...action.payload.response)
+      state.status = 'success'
+    })
+    builder.addCase(createTodo.pending, state => {
+      state.status = 'pending'
     })
   }
 })

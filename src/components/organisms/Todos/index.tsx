@@ -9,17 +9,17 @@ import { FormEvent, useEffect, useState } from 'react'
 import { useTodo } from 'store/todo'
 
 const TodoTabs = () => {
-  const { todo, setAddTodos, setInitialTodos } = useTodo()
+  const { todo, setTodo, setInitialTodos } = useTodo()
   const [emoji, setEmoji] = useState('')
 
   const createTodo = (e: FormEvent) => {
     const target = e.target as HTMLFormElement
 
-    setAddTodos({
+    setTodo({
       text: target.todo.value,
       checked: false,
       color: '#0094FF',
-      emoji: emoji,
+      emoji,
       id: nanoid()
     })
 

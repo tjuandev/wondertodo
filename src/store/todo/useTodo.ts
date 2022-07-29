@@ -1,4 +1,4 @@
-import { addTodo, fetchAllTodos } from './slice'
+import { createTodo, fetchAllTodos } from './slice'
 import { useTypedDispatch, useTypedSelector } from 'store/useHelpers'
 import { Todo } from './types'
 
@@ -11,7 +11,7 @@ export function useTodo() {
 
   const setState = {
     setInitialTodos: () => dispatch(fetchAllTodos()),
-    setAddTodos: (payload: Todo) => dispatch(addTodo(payload))
+    setTodo: (todo: Todo) => dispatch(createTodo(todo))
   }
 
   return {
