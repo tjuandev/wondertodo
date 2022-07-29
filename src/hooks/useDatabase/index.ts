@@ -2,14 +2,18 @@ import { supabase } from 'services/supabase'
 import { MatchQuery, SupabaseData } from './types'
 
 const useDatabase = () => ({
-  read: async (table: string, columnQuery?: string) => {
-    return await supabase.from(table).select(columnQuery)
+  read: async <Type>(table: string, columnQuery?: string) => {
+    return await supabase.from<Type>(table).select(columnQuery)
   },
-  create: async (table: string, data: SupabaseData) => {
-    return await supabase.from(table).insert(data)
+  create: async <Type>(table: string, data: SupabaseData) => {
+    return await supabase.from<Type>(table).insert(data)
   },
-  update: async (table: string, data: SupabaseData, matchQuery: MatchQuery) => {
-    return await supabase.from(table).update(data).match(matchQuery)
+  update: async <Type>(
+    table: string,
+    data: SupabaseData,
+    matchQuery: MatchQuery
+  ) => {
+    return await supabase.from<Type>(table).update(data).match(matchQuery)
   }
 })
 
