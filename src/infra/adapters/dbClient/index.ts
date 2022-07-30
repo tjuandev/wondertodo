@@ -4,4 +4,6 @@ const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL!
 
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
-export const dbClient = createClient(supabaseURL, supabaseAnonKey)
+const dbClient = createClient(supabaseURL, supabaseAnonKey)
+
+export default dbClient

@@ -1,4 +1,4 @@
-import { dbClient } from 'infra/http/dbClient'
+import { dbClient } from 'infra/adapters'
 import { MatchQuery, SupabaseData } from './types'
 
 const useDatabase = () => ({

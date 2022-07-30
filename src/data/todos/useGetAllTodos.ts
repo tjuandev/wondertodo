@@ -1,4 +1,4 @@
-import { dbClient } from 'infra/http/dbClient'
+import { dbClient } from 'infra/adapters'
 import { useTodo } from 'infra/store/todo'
 import { useCallback, useState } from 'react'
 
