@@ -1,18 +1,20 @@
-import { nanoid } from '@reduxjs/toolkit'
-
 import { InputToggle, Todo } from 'ui/components/molecules'
 
 import { Container, ListWrapper, TabsContainer } from './Stylesheet'
 import { SimpleTab, EmojiPicker } from 'ui/components/atoms'
-import { FormEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { useTodo } from 'infra/store/todo'
+import { useGetAllTodos } from 'data/todos'
 
 const TodoTabs = () => {
-  const { todo, setTodo, setInitialTodos } = useTodo()
   const [emoji, setEmoji] = useState('')
+  const { todo, getAllTodos, loading } = useGetAllTodos()
 
-  const createTodo = (e: FormEvent) => {
+  useEffect(() => {
+    getAllTodos('todos')
+  }, [getAllTodos])
+
+  /* const createTodo = (e: FormEvent) => {
     const target = e.target as HTMLFormElement
 
     setTodo({
@@ -25,12 +27,7 @@ const TodoTabs = () => {
 
     setEmoji('')
   }
-
-  useEffect(() => {
-    if (todo.status === 'idle') {
-      setInitialTodos()
-    }
-  }, [setInitialTodos, todo])
+ */
 
   return (
     <Container>
@@ -39,16 +36,16 @@ const TodoTabs = () => {
         <SimpleTab name="Concluídas" />
       </TabsContainer>
       <ListWrapper>
-        {todo.status === 'pending' ? (
+        {loading ? (
           <>loading</>
         ) : (
-          todo.data.map(({ id, ...todoProps }) => {
+          todo.data?.map(({ id, ...todoProps }) => {
             return <Todo key={id} {...todoProps} />
           })
         )}
       </ListWrapper>
       <InputToggle
-        onSubmit={createTodo}
+        onSubmit={() => console.log('')}
         text="+ Create new todo"
         inputProps={{
           placeholder: 'Digite o nome do seu todo aqui',

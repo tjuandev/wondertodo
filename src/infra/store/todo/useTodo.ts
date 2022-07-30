@@ -1,6 +1,7 @@
-import { createTodo, fetchAllTodos } from './slice'
+import { setTodos } from './slice'
 import { useTypedDispatch, useTypedSelector } from 'infra/store/useHelpers'
-import { Todo } from './types'
+import { TodoState } from './types'
+import { useCallback } from 'react'
 
 export function useTodo() {
   const dispatch = useTypedDispatch()
@@ -10,8 +11,10 @@ export function useTodo() {
   }
 
   const setState = {
-    setInitialTodos: () => dispatch(fetchAllTodos()),
-    setTodo: (todo: Todo) => dispatch(createTodo(todo))
+    setTodos: useCallback(
+      (todos: TodoState) => dispatch(setTodos(todos)),
+      [dispatch]
+    )
   }
 
   return {

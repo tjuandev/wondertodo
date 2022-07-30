@@ -6,8 +6,7 @@ export type Todo = {
   emoji: string
 }
 
-export type TodoInitialState = {
-  data: Todo[]
-  error: string
-  status: string
+export type TodoState = {
+  data: Todo[] | null
+  error: string | null
 }
