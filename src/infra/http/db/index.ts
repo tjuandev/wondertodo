@@ -1,1 +1,1 @@
-export { default as getAllFromTable } from './getAllFromTable'
+export * as Read from './read'
