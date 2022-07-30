@@ -1,5 +1,5 @@
 import { createTodo, fetchAllTodos } from './slice'
-import { useTypedDispatch, useTypedSelector } from 'store/useHelpers'
+import { useTypedDispatch, useTypedSelector } from 'infra/store/useHelpers'
 import { Todo } from './types'
 
 export function useTodo() {

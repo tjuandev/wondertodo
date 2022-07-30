@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import store from 'store'
+import store from 'infra/store'
 import { Provider } from 'react-redux'
 
 type MainProviderProps = {

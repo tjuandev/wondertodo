@@ -1,4 +1,4 @@
-import { theme } from 'globalStyles/theme'
+import { theme } from 'ui/globalStyles/theme'
 import styled from 'styled-components'
 
 export const Wrapper = styled.li`

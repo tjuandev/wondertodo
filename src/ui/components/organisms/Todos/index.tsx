@@ -1,12 +1,12 @@
 import { nanoid } from '@reduxjs/toolkit'
 
-import { InputToggle, Todo } from 'components/molecules'
+import { InputToggle, Todo } from 'ui/components/molecules'
 
 import { Container, ListWrapper, TabsContainer } from './Stylesheet'
-import { SimpleTab, EmojiPicker } from 'components/atoms'
+import { SimpleTab, EmojiPicker } from 'ui/components/atoms'
 import { FormEvent, useEffect, useState } from 'react'
 
-import { useTodo } from 'store/todo'
+import { useTodo } from 'infra/store/todo'
 
 const TodoTabs = () => {
   const { todo, setTodo, setInitialTodos } = useTodo()

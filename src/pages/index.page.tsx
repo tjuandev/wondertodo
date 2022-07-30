@@ -1,4 +1,4 @@
-import { Todos } from 'components/organisms'
+import { Todos } from 'ui/components/organisms'
 
 export default function Home() {
   return <Todos />

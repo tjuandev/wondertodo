@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
-import GlobalStyle from 'globalStyles'
-import { MainProvider } from 'utils/providers/mainProviders'
+import GlobalStyle from 'ui/globalStyles'
+import { MainProvider } from 'ui/providers/mainProviders'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

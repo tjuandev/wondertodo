@@ -1,9 +1,9 @@
 import { Wrapper, StartBoxWrapper, EndBoxWrapper } from './Stylesheet'
-import DragDots from 'assets/icons/DragDots'
+import DragDots from 'ui/assets/icons/DragDots'
 
-import { Checkbox } from 'components/atoms'
+import { Checkbox } from 'ui/components/atoms'
 import { useState } from 'react'
-import { theme } from 'globalStyles/theme'
+import { theme } from 'ui/globalStyles/theme'
 
 import { TodoProps } from './types'
 

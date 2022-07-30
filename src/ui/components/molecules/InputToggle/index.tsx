@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { KeyUpLabel } from 'components/atoms'
+import { KeyUpLabel } from 'ui/components/atoms'
 
 import {
   CreateButtonWrapper,

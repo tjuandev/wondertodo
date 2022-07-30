@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from 'globalStyles/theme'
+import { theme } from 'ui/globalStyles/theme'
 
 export const Container = styled.div`
   position: relative;

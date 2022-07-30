@@ -1,4 +1,4 @@
-import Checked from 'assets/icons/Checked'
+import Checked from 'ui/assets/icons/Checked'
 import { Button } from './Stylesheet'
 
 import { CheckboxProps } from './types'

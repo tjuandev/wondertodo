@@ -1,4 +1,4 @@
-import Smiley from 'assets/icons/Smiley'
+import Smiley from 'ui/assets/icons/Smiley'
 
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
