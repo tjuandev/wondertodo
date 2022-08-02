@@ -24,6 +24,7 @@ const customJestConfig = {
     'src/assets/',
     'src/types/',
     'src/helpers/',
+    'src/services/',
     'src/tests/mocks/index.ts',
     'types.ts'
   ],
