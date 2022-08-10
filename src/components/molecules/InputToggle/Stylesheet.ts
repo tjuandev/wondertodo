@@ -15,7 +15,7 @@ export const EndElementsContainer = styled.div`
   gap: 8px;
 `
 
-export const InputContainer = styled.form`
+export const InputForm = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,10 +69,6 @@ export const CreateButtonWrapper = styled.div`
     :hover {
       color: rgba(255, 255, 255, 0.25);
     }
-  }
-
-  p > span {
-    font-weight: bolder;
   }
 
   > div {

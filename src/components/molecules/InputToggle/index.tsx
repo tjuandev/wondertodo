@@ -6,7 +6,7 @@ import {
   CreateButtonWrapper,
   EndElementsContainer,
   Input,
-  InputContainer,
+  InputForm,
   Wrapper
 } from './Stylesheet'
 import { InputToggleProps, KeyUpLabelsProps } from './types'
@@ -39,7 +39,7 @@ const InputToggle = ({
   return (
     <Wrapper>
       {inputMode ? (
-        <InputContainer
+        <InputForm
           onSubmit={e => {
             e.preventDefault()
             onSubmit(e)
@@ -48,12 +48,10 @@ const InputToggle = ({
         >
           <Input {...inputProps} />
           <EndElementsContainer>{EndInputElements}</EndElementsContainer>
-        </InputContainer>
+        </InputForm>
       ) : (
         <CreateButtonWrapper>
-          <button onClick={toggleInputMode}>
-            <p>{text}</p>
-          </button>
+          <button onClick={toggleInputMode}>{text}</button>
           <KeyUpLabels keyUps={keyUps} />
         </CreateButtonWrapper>
       )}
