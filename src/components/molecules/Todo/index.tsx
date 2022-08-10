@@ -15,9 +15,7 @@ export default function Todo({
 }: TodoProps) {
   const [isTodoDone, setIsTodoDone] = useState(checked)
 
-  const toggleTodoDone = () => {
-    setIsTodoDone(!isTodoDone)
-  }
+  const toggleTodoDone = () => setIsTodoDone(!isTodoDone)
 
   return (
     <Wrapper color={color}>
