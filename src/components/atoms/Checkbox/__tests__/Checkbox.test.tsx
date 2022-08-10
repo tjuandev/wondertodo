@@ -29,4 +29,12 @@ describe('Component Checkbox', () => {
 
     expect(svgContainer).toHaveStyle('fill: red')
   })
+
+  it('Should change svg opacity when checked', () => {
+    render(<Checkbox checked={true} color="red" onClick={jest.fn} />)
+
+    const { parentElement: svgContainer } = screen.getByTitle('Checked')
+
+    expect(svgContainer).toHaveStyle('opacity: 1')
+  })
 })
