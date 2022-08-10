@@ -9,11 +9,17 @@ jest.mock('assets/icons/Checked', () => ({ color }: { color: string }) => {
   )
 })
 
-describe('Component Checkbox', () => {
+const checkboxProps = {
+  checked: false,
+  color: 'red',
+  onClick: () => ({})
+}
+
+describe('<Checkbox />', () => {
   it('Should fire onClick event when button is trigged', () => {
     const onClick = jest.fn()
 
-    render(<Checkbox checked={false} color="red" onClick={onClick} />)
+    render(<Checkbox {...checkboxProps} onClick={onClick} />)
 
     const checkBoxButton = screen.getByRole('button')
 
@@ -23,7 +29,7 @@ describe('Component Checkbox', () => {
   })
 
   it('Should change checked svg color based on props', () => {
-    render(<Checkbox checked={false} color="red" onClick={jest.fn} />)
+    render(<Checkbox {...checkboxProps} />)
 
     const { parentElement: svgContainer } = screen.getByTitle('Checked')
 
@@ -31,7 +37,7 @@ describe('Component Checkbox', () => {
   })
 
   it('Should change svg opacity when checked', () => {
-    render(<Checkbox checked={true} color="red" onClick={jest.fn} />)
+    render(<Checkbox {...checkboxProps} checked={true} />)
 
     const { parentElement: svgContainer } = screen.getByTitle('Checked')
 
