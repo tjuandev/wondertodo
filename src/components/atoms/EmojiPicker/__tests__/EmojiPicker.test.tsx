@@ -1,6 +1,6 @@
-import { act, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react'
 
-import { setupUserEvent } from 'testHelpers/helpers'
 import EmojiPicker from '..'
 
 jest.mock('emoji-picker-react', () => ({
@@ -11,17 +11,24 @@ jest.mock('emoji-picker-react', () => ({
 }))
 
 describe('<EmojiPicker />', () => {
+  const user = userEvent.setup({
+    delay: null
+  })
+
   it("Should open EmojiPicker and it's wrapper when clicked for the first time", async () => {
     const onClick = jest.fn()
-    const { user } = setupUserEvent(<EmojiPicker onEmojiClick={onClick} />)
+
+    render(<EmojiPicker onEmojiClick={onClick} />)
 
     const emojiButton = screen.getByRole('button')
 
-    await act(() => user.click(emojiButton))
-
-    const emojiPicker = screen.getByRole('button', { name: 'EmojiPicker' })
+    await user.click(emojiButton)
 
     const emojiWrapper = screen.getByTestId('emoji-wrapper')
+
+    const emojiPicker = await screen.findByRole('button', {
+      name: 'EmojiPicker'
+    })
 
     expect(emojiPicker).toBeInTheDocument()
     expect(emojiWrapper).toBeInTheDocument()
@@ -30,15 +37,17 @@ describe('<EmojiPicker />', () => {
   it('Should call onClick and update emoji button value state when an emoji is selected', async () => {
     const onClick = jest.fn()
 
-    const { user } = setupUserEvent(<EmojiPicker onEmojiClick={onClick} />)
+    render(<EmojiPicker onEmojiClick={onClick} />)
 
     const emojiButton = screen.getByRole('button')
 
-    await act(() => user.click(emojiButton))
+    await user.click(emojiButton)
 
-    const emojiPicker = screen.getByRole('button', { name: 'EmojiPicker' })
+    const emojiPicker = screen.getByRole('button', {
+      name: 'EmojiPicker'
+    })
 
-    await act(() => user.click(emojiPicker))
+    await user.click(emojiPicker)
 
     expect(onClick).toHaveBeenCalledTimes(1)
     expect(emojiButton.textContent).toBe('🚀')
@@ -47,15 +56,17 @@ describe('<EmojiPicker />', () => {
   it('Should close EmojiPicker when clicked outside', async () => {
     const onClick = jest.fn()
 
-    const { user } = setupUserEvent(<EmojiPicker onEmojiClick={onClick} />)
+    render(<EmojiPicker onEmojiClick={onClick} />)
 
     const emojiButton = screen.getByRole('button')
 
-    await act(() => user.click(emojiButton))
+    await user.click(emojiButton)
 
-    const emojiPicker = screen.getByRole('button', { name: 'EmojiPicker' })
+    const emojiPicker = screen.getByRole('button', {
+      name: 'EmojiPicker'
+    })
 
-    await act(() => user.click(document.querySelector('body')!))
+    await user.click(document.querySelector('body')!)
 
     expect(emojiPicker).not.toBeInTheDocument()
   })
