@@ -16,7 +16,7 @@ const checkboxProps = {
 }
 
 describe('<Checkbox />', () => {
-  it('Should show checked icon when clicked', () => {
+  it('Should show checked icon when checkbox is checked', () => {
     render(<Checkbox {...checkboxProps} checked={true} />)
 
     const { parentElement: svgContainer } = screen.getByTitle('Checked')
