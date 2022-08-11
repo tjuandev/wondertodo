@@ -14,13 +14,19 @@ const checkboxProps = {
 }
 
 describe('<Checkbox />', () => {
-  it('Should show checked icon when checkbox is checked', () => {
-    render(<Checkbox {...checkboxProps} checked={true} />)
+  it('Should show or not show checked icon based on truthy of checked button', () => {
+    const { rerender } = render(<Checkbox {...checkboxProps} checked={true} />)
 
     const { parentElement: svgContainer } = screen.getByTitle('Checked')
 
     expect(svgContainer).toHaveStyle({
       opacity: 1
+    })
+
+    rerender(<Checkbox {...checkboxProps} checked={false} />)
+
+    expect(svgContainer).toHaveStyle({
+      opacity: 0
     })
   })
 })
