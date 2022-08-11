@@ -3,6 +3,8 @@ import { render, screen } from '@testing-library/react'
 
 import EmojiPicker from '..'
 
+const ONE_TIME = 1
+
 jest.mock('emoji-picker-react', () => ({
   __esModule: true,
   default: ({ onEmojiClick }: any) => (
@@ -15,7 +17,7 @@ describe('<EmojiPicker />', () => {
     delay: null
   })
 
-  it("Should open EmojiPicker and it's wrapper when clicked for the first time", async () => {
+  it('Should open EmojiPicker when clicked for the first time', async () => {
     const onClick = jest.fn()
 
     render(<EmojiPicker onEmojiClick={onClick} />)
@@ -24,17 +26,14 @@ describe('<EmojiPicker />', () => {
 
     await user.click(emojiButton)
 
-    const emojiWrapper = screen.getByTestId('emoji-wrapper')
-
     const emojiPicker = await screen.findByRole('button', {
       name: 'EmojiPicker'
     })
 
     expect(emojiPicker).toBeInTheDocument()
-    expect(emojiWrapper).toBeInTheDocument()
   })
 
-  it('Should call onClick and update emoji button value state when an emoji is selected', async () => {
+  it('Should update emoji button content when an emoji is selected', async () => {
     const onClick = jest.fn()
 
     render(<EmojiPicker onEmojiClick={onClick} />)
@@ -49,7 +48,7 @@ describe('<EmojiPicker />', () => {
 
     await user.click(emojiPicker)
 
-    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledTimes(ONE_TIME)
     expect(emojiButton.textContent).toBe('🚀')
   })
 
