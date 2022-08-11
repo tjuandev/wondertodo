@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { KeyUpLabel } from 'components/atoms'
+import KeyUpLabel from '..'
 
 describe('<KeyUpLabel />', () => {
-  it('Renders the text prop as content of the label', () => {
+  it('Should render the text prop as content of the label', () => {
     render(<KeyUpLabel text="test" />)
 
     const label = screen.getByText(/test/i)
