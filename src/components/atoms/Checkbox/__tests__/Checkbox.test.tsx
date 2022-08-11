@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Checkbox from '..'
 
 jest.mock('assets/icons/Checked', () => ({ color }: { color: string }) => {
@@ -16,27 +16,7 @@ const checkboxProps = {
 }
 
 describe('<Checkbox />', () => {
-  it('Should fire onClick event when button is trigged', () => {
-    const onClick = jest.fn()
-
-    render(<Checkbox {...checkboxProps} onClick={onClick} />)
-
-    const checkBoxButton = screen.getByRole('button')
-
-    fireEvent.click(checkBoxButton)
-
-    expect(onClick).toHaveBeenCalled()
-  })
-
-  it('Should change checked svg color based on props', () => {
-    render(<Checkbox {...checkboxProps} />)
-
-    const { parentElement: svgContainer } = screen.getByTitle('Checked')
-
-    expect(svgContainer).toHaveStyle('fill: red')
-  })
-
-  it('Should change svg opacity when checked', () => {
+  it('Should show checked icon when clicked', () => {
     render(<Checkbox {...checkboxProps} checked={true} />)
 
     const { parentElement: svgContainer } = screen.getByTitle('Checked')
