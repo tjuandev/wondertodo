@@ -1,13 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import Checkbox from '..'
 
-jest.mock('assets/icons/Checked', () => ({ color }: { color: string }) => {
-  return (
-    <svg style={{ fill: color }}>
-      <title>Checked</title>
-    </svg>
-  )
-})
+jest.mock('assets/icons/Checked', () => () => (
+  <svg>
+    <title>Checked</title>
+  </svg>
+))
 
 const checkboxProps = {
   checked: false,
@@ -21,6 +19,8 @@ describe('<Checkbox />', () => {
 
     const { parentElement: svgContainer } = screen.getByTitle('Checked')
 
-    expect(svgContainer).toHaveStyle('opacity: 1')
+    expect(svgContainer).toHaveStyle({
+      opacity: 1
+    })
   })
 })
