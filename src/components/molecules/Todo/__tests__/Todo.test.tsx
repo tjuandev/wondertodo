@@ -26,7 +26,7 @@ describe('<Todo />', () => {
     expect(paragraph).toBeInTheDocument()
   })
 
-  it('Should toggle checkbox when clicked in button', async () => {
+  it('Should toggle checkbox when clicked in checkbox button', async () => {
     render(<Todo {...todoProps} />)
 
     const checkbox = screen.getByRole('button')
