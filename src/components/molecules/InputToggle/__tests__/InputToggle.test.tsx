@@ -10,10 +10,12 @@ const inputToggleCommonProps = {
   }
 }
 
+const ONE_TIME = 1
+
 describe('<InputToggle />', () => {
   const user = userEvent.setup()
 
-  it('Should render a button with text prop as content', () => {
+  it('Should renders a toggle button with text prop as content', () => {
     render(<InputToggle {...inputToggleCommonProps} />)
 
     const button = screen.getByRole('button', {
@@ -52,6 +54,16 @@ describe('<InputToggle />', () => {
 
     await user.type(input, '{Enter}')
 
-    expect(onSubmit).toHaveBeenCalled()
+    expect(onSubmit).toHaveBeenCalledTimes(ONE_TIME)
+  })
+
+  it('Should render keyUpLabels when keyUps prop is passed', () => {
+    const keyUps = ['+']
+
+    render(<InputToggle {...inputToggleCommonProps} keyUps={keyUps} />)
+
+    const keyUpLabels = screen.getByText('+')
+
+    expect(keyUpLabels).toBeInTheDocument()
   })
 })
