@@ -31,9 +31,14 @@ const InputToggle = ({
   onSubmit
 }: InputToggleProps) => {
   const [inputMode, setInputMode] = useState(false)
+  const [inputValue, setInputValue] = useState('')
 
   const toggleInputMode = () => {
     setInputMode(!inputMode)
+  }
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value)
   }
 
   return (
@@ -42,11 +47,11 @@ const InputToggle = ({
         <InputForm
           onSubmit={e => {
             e.preventDefault()
-            onSubmit(e)
+            onSubmit(inputValue)
             setInputMode(false)
           }}
         >
-          <Input {...inputProps} />
+          <Input onChange={onChange} {...inputProps} />
           <EndElementsContainer>{EndInputElements}</EndElementsContainer>
         </InputForm>
       ) : (

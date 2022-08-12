@@ -4,7 +4,7 @@ import { InputToggle, Todo } from 'components/molecules'
 
 import { Container, ListWrapper, TabsContainer } from './Stylesheet'
 import { SimpleTab, EmojiPicker } from 'components/atoms'
-import { FormEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useTodo } from 'store/todo'
 
@@ -12,11 +12,9 @@ const TodoTabs = () => {
   const { todo, setTodo, setInitialTodos } = useTodo()
   const [emoji, setEmoji] = useState('')
 
-  const createTodo = (e: FormEvent) => {
-    const target = e.target as HTMLFormElement
-
+  const createTodo = (value: string) => {
     setTodo({
-      text: target.todo.value,
+      text: value,
       checked: false,
       color: '#0094FF',
       emoji,
@@ -49,7 +47,7 @@ const TodoTabs = () => {
       </ListWrapper>
       <InputToggle
         onSubmit={createTodo}
-        text="+ Create new todo"
+        text="Create new todo"
         inputProps={{
           placeholder: 'Digite o nome do seu todo aqui',
           name: 'todo'

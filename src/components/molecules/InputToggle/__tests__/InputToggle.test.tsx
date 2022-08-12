@@ -66,4 +66,20 @@ describe('<InputToggle />', () => {
 
     expect(keyUpLabels).toBeInTheDocument()
   })
+
+  it('Should change input value when user types in input', async () => {
+    render(<InputToggle {...inputToggleCommonProps} />)
+
+    const button = screen.getByRole('button', {
+      name: 'inputMode'
+    })
+
+    await user.click(button)
+
+    const input = screen.getByPlaceholderText('inputPlaceholder')
+
+    await user.type(input, 'Test')
+
+    expect(input).toHaveValue('Test')
+  })
 })
