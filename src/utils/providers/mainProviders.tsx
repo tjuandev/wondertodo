@@ -1,9 +1,9 @@
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 import store from 'store'
 import { Provider } from 'react-redux'
 
 type MainProviderProps = {
-  children: ReactElement[]
+  children: ReactNode
 }
 
 export const MainProvider = ({ children }: MainProviderProps) => {
