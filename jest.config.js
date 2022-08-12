@@ -26,7 +26,11 @@ const customJestConfig = {
     'src/helpers/',
     'src/services/',
     'src/tests/mocks/index.ts',
-    'types.ts'
+    'types.ts',
+    'src/components/molecules/index.ts',
+    'src/components/atoms/index.ts',
+    'src/components/organisms/index.ts',
+    'src/components/templates/index.ts'
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'node'],
   roots: ['<rootDir>/src'],
