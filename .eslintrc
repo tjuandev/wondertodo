@@ -45,7 +45,9 @@
     "promise",
     "prettier",
     "jsx-a11y",
-    "@typescript-eslint/eslint-plugin"
+    "@typescript-eslint/eslint-plugin",
+    "eslint-plugin-testing-library",
+    "eslint-plugin-jest-dom"
   ],
   "rules": {
     "react/jsx-filename-extension": [

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LabelWrapper = styled.span`
+export const LabelWrapper = styled.p`
   background: rgba(0, 0, 0, 0.5);
   border-radius: max(5px);
 

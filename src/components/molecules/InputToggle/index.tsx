@@ -6,7 +6,7 @@ import {
   CreateButtonWrapper,
   EndElementsContainer,
   Input,
-  InputContainer,
+  InputForm,
   Wrapper
 } from './Stylesheet'
 import { InputToggleProps, KeyUpLabelsProps } from './types'
@@ -31,29 +31,32 @@ const InputToggle = ({
   onSubmit
 }: InputToggleProps) => {
   const [inputMode, setInputMode] = useState(false)
+  const [inputValue, setInputValue] = useState('')
 
   const toggleInputMode = () => {
     setInputMode(!inputMode)
   }
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value)
+  }
+
   return (
     <Wrapper>
       {inputMode ? (
-        <InputContainer
+        <InputForm
           onSubmit={e => {
             e.preventDefault()
-            onSubmit(e)
+            onSubmit(inputValue)
             setInputMode(false)
           }}
         >
-          <Input {...inputProps} />
+          <Input onChange={onChange} {...inputProps} />
           <EndElementsContainer>{EndInputElements}</EndElementsContainer>
-        </InputContainer>
+        </InputForm>
       ) : (
         <CreateButtonWrapper>
-          <button onClick={toggleInputMode}>
-            <p>{text}</p>
-          </button>
+          <button onClick={toggleInputMode}>{text}</button>
           <KeyUpLabels keyUps={keyUps} />
         </CreateButtonWrapper>
       )}
